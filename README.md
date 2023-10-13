@@ -57,7 +57,7 @@ Please follow [these instructions](GettingReady.md) and make sure you have set u
 
 ## ⚡ Prerequisites
 
-The workshop is designed for developers that have used other platforms like Azure DevOps, GitLab, or Bitbucket and now want to switch to GitHub. But it is also suitable for people that are new to topics like git, CI/CD, and DevOps.
+The workshop is designed for developers that have used other platforms like Azure DevOps, GitLab, or Bitbucket and now want to switch to GitHub. But it is also suitable for people that are new to topics like git, CI/CD, and DevOps. Test
 
 For this workshop you need the following:
 
