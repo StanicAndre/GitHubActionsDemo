@@ -13,9 +13,9 @@ on:
         value: ${{ jobs.reusable-job.outputs.current-time }}.
         
 jobs:
-  reusable-job:qwrqwr
+  reusable-job:
     runs-on: ubuntu-latest
-    outputs:qwrqwr
+    outputs:
       current-time: ${{ steps.time.outputs.time }}
     steps:
       - name: Greet someone
