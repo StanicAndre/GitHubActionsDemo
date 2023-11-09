@@ -1,0 +1,18 @@
+name: Download data from another job
+
+on: [workflow_dispatch]
+
+jobs:
+  job_1:
+    name: Display results
+    runs-on: windows-latest
+    steps:
+      - name: Download math result for job 2
+        uses: actions/download-artifact@v3
+        with:
+          name: homework
+      - name: Print the final result
+        shell: bash
+        run: |
+          value=`cat math-homework.txt`
+          echo The result is $value
