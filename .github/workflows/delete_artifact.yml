@@ -2,7 +2,7 @@ name: Delete data
 
 on:
   workflow_run:
-    workflows: [Upload data]
+    workflows: [Download data]
     types:
       - completed
 
@@ -22,7 +22,7 @@ jobs:
             let matchArtifact = allArtifacts.data.artifacts.filter((artifact) => {
               return artifact.name == "test"
             })[0];
-            let download = await github.rest.actions.deleteArtifact({
+            let delete = await github.rest.actions.deleteArtifact({
                owner: context.repo.owner,
                repo: context.repo.repo,
                artifact_id: matchArtifact.id
