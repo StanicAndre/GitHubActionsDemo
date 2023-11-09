@@ -35,6 +35,7 @@ jobs:
                owner: context.repo.owner,
                repo: context.repo.repo,
                artifact_id: matchArtifact.id
+            });
 
       - name: 'Unzip artifact'
         run: unzip test.zip
