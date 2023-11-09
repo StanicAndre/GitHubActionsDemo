@@ -2,7 +2,7 @@ name: Delete data
 
 on:
   workflow_run:
-    workflows: [Download data]
+    workflows: [Upload data]
     types:
       - completed
 
