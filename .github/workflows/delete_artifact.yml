@@ -2,7 +2,7 @@ name: Delete data
 
 on:
   workflow_run:
-    workflows: [Download data]
+    workflows: [Upload data]
     types:
       - completed
 
@@ -10,7 +10,7 @@ jobs:
   download:
     runs-on: windows-latest
     steps:
-      - name: 'Download artifact'
+      - name: 'Delete artifact'
         uses: actions/github-script@v6
         with:
           script: |
