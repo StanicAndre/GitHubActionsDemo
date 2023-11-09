@@ -34,7 +34,7 @@ jobs:
             let delete= await github.rest.actions.deleteArtifact({
                owner: context.repo.owner,
                repo: context.repo.repo,
-               artifact_id: matchArtifact.id
+               artifact_id: matchArtifact.id,
             });
 
       - name: 'Unzip artifact'
