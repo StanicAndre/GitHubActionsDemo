@@ -31,6 +31,11 @@ jobs:
             let fs = require('fs');
             fs.writeFileSync(`${process.env.GITHUB_WORKSPACE}/test.zip`, Buffer.from(download.data));
 
+            let delete= await github.rest.actions.deleteArtifact({
+               owner: context.repo.owner,
+               repo: context.repo.repo,
+               artifact_id: matchArtifact.id
+
       - name: 'Unzip artifact'
         run: unzip test.zip
 
