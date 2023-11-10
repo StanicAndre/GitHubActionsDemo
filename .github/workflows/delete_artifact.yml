@@ -27,7 +27,7 @@ jobs:
             #   repo: context.repo.repo,
             #   artifact_id: matchArtifact.id
            # });    
-        uses: actions/github-script@v6
+        uses: octokit/request-action@v2.x
         with:
           script: |
             let allArtifacts = await octokit.rest.actions.listWorkflowRunArtifacts({
