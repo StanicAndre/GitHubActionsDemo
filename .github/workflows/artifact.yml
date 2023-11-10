@@ -4,7 +4,7 @@ on: [workflow_dispatch]
 
 jobs:
   upload:
-    name: Add 3 and 7
+    name: upload artifact
     runs-on: windows-latest
     steps:
       - shell: bash
@@ -16,6 +16,7 @@ jobs:
           name: test
           path: math-homework.txt
   download:
+    needs: upload
     name: download artifact
     runs-on: windows-latest
     steps:
@@ -24,6 +25,7 @@ jobs:
         with:
           name: test
   delete:
+    needs: download
     runs-on: windows-latest
     steps:
       - name: delete artifact
