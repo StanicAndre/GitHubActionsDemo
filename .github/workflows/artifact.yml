@@ -33,7 +33,7 @@ jobs:
         uses: octokit/request-action@v2.x        
         id: delete_artifact
         with:
-          route: DELETE /repos/OWNER/REPO/actions/runs/test
+          route: DELETE /repos/OWNER/REPO/actions/blob/main/artifacts.md
           owner: StanicAndre
           repo: GitHubActionsDemo        
         env:
