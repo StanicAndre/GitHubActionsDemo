@@ -1,8 +1,8 @@
-name: Delete data
+name: Delete artifact
 
 on:
   workflow_run:
-    workflows: [Artifact Handling]
+    workflows: [Artifacts]
     types:
       - completed
 
