@@ -1,4 +1,4 @@
-name: Artifact Handling
+name: Artifacts
 
 on: [workflow_dispatch]
 
