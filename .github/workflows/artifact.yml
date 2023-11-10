@@ -23,26 +23,4 @@ jobs:
       - name: Download artifact
         uses: actions/download-artifact@v3
         with:
-          name: test
-  delete:
-    needs: download
-    runs-on: windows-latest
-    steps:
-      - name: delete artifact
-          
-        uses: actions/github-script@v6
-        with:
-          script: |
-           let allArtifacts = await github.rest.actions.listWorkflowRunArtifacts({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              run_id: context.payload.workflow_run.id,
-           });
-           let matchArtifact = allArtifacts.data.artifacts.filter((artifact) => {
-             return artifact.name == "test"
-           })[0];
-           await github.rest.actions.deleteArtifact({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              artifact_id: matchArtifact.id
-           });    
+          name: test  
