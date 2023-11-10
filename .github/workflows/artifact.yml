@@ -29,7 +29,12 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: delete artifact
-        uses: octokit/request-action@v2.x
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+        uses: octokit/request-action@v2.x        
         id: delete_artifact
         with:
-          name: test
+          route: DELETE /repos/OWNER/REPO/actions/runs/test
+          owner: StanicAndre
+          repo: GitHubActionsDemo
