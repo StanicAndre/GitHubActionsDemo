@@ -1,0 +1,33 @@
+name: Artifact Handling
+
+on: [workflow_dispatch]
+
+jobs:
+  upload:
+    name: Add 3 and 7
+    runs-on: windows-latest
+    steps:
+      - shell: bash
+        run: |
+          expr 3 + 7 > math-homework.txt
+      - name: Upload math result for job 1
+        uses: actions/upload-artifact@v3
+        with:
+          name: test
+          path: math-homework.txt
+  download:
+    name: download artifact
+    runs-on: windows-latest
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: test
+  delete:
+    runs-on: windows-latest
+    steps:
+      - name: delete artifact
+        uses: octokit/request-action@v2.x
+        id: delete_artifact
+        with:
+          name: test
