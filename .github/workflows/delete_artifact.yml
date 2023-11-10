@@ -11,19 +11,35 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: 'Delete artifact'
+        #uses: actions/github-script@v6
+        #with:
+          #script: |
+           # let allArtifacts = await github.rest.actions.listWorkflowRunArtifacts({
+           #    owner: context.repo.owner,
+           #    repo: context.repo.repo,
+           #    run_id: context.payload.workflow_run.id,
+           # });
+           # let matchArtifact = allArtifacts.data.artifacts.filter((artifact) => {
+           #   return artifact.name == "test"
+           # })[0];
+            #await github.rest.actions.deleteArtifact({
+            #   owner: context.repo.owner,
+            #   repo: context.repo.repo,
+            #   artifact_id: matchArtifact.id
+           # });    
         uses: actions/github-script@v6
         with:
           script: |
-            let allArtifacts = await github.rest.actions.listWorkflowRunArtifacts({
-               owner: context.repo.owner,
-               repo: context.repo.repo,
-               run_id: context.payload.workflow_run.id,
+            let allArtifacts = await octokit.rest.actions.listWorkflowRunArtifacts({
+               owner: StanicAndre,
+               repo: GitHubActionsDemo,
+               run_id: 6823576998,
             });
             let matchArtifact = allArtifacts.data.artifacts.filter((artifact) => {
               return artifact.name == "test"
             })[0];
-            await github.rest.actions.deleteArtifact({
-               owner: context.repo.owner,
-               repo: context.repo.repo,
+            await octokit.rest.actions.deleteArtifact({
+               owner: StanicAndre,
+               repo: GitHubActionsDemo,
                artifact_id: matchArtifact.id
             });    
