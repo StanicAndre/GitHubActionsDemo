@@ -10,9 +10,12 @@ jobs:
   download:
     runs-on: windows-latest
     steps:
+      - uses: actions/checkout@v3
+        name: checkout
+        
       - id: cleanup_artifacts
         name: cleanup artifacts
         shell: powershell
         run: |
-          .\cleanup_artifacts.ps1 -github_token ${{ secrets.GITHUB_TOKEN }}
+          .\powershell\cleanup_artifacts.ps1 -github_token ${{ secrets.GITHUB_TOKEN }}
       
