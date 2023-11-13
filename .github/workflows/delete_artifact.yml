@@ -13,5 +13,6 @@ jobs:
       - id: cleanup_artifacts
         name: cleanup artifacts
         shell: powershell
-        run: .\powershell\cleanup_artifacts.ps1 -github_token ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          .\cleanup_artifacts.ps1 -github_token ${{ secrets.GITHUB_TOKEN }}
       
