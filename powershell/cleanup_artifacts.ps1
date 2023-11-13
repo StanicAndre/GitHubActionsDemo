@@ -20,14 +20,14 @@ $header.Add("X-GitHub-Api-Version", "2022-11-28");
 
 # get existing artifacts
 $artifacts = Invoke-RestMethod -Uri $repo_url -Headers $header -Method Get;
+Write-Host "artifact count `"$artifacts.Count`""
 
 #delete artifacts
 for ($i = 0; $i -lt $artifacts.Count; $i++) {
-    $art_tag = $artifacts[$i].tag_name;
-    $art_name = $artifacts[$i].name;
+    $art_id = $artifacts[$i].id;
 
 
-    Write-Host "delete artifact `"$art_name[$art_tag]`""
+    Write-Host "delete artifact `"$art_id`""
     Invoke-RestMethod -Uri $artifacts[$i].url -Headers $header -Method Delete;
 }  
 
