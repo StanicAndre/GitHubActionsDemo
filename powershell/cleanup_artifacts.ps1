@@ -26,14 +26,14 @@ $art_id_0 = $artifacts.artifacts[0].id;
 $art_url_0 = $artifacts.artifacts[0].url;
 Write-Host "count `"$art_count`""
 Write-Host "id `"$art_id_0`""
-Write-Host "url `"$artifacts`""
+Write-Host "url `"$art_url_0`""
 
 #delete artifacts
 for ($i = 0; $i -lt $art_count; $i++) {
-    $art_id = $artifacts[$i].id;
+    $art_id = $artifacts.artifacts[$i].id;
 
 
     Write-Host "delete artifact `"$art_id`""
-    Invoke-RestMethod -Uri $artifacts[$i].url -Headers $header -Method Delete;
+    Invoke-RestMethod -Uri $artifacts.artifacts[$i].url -Headers $header -Method Delete;
 }  
 
