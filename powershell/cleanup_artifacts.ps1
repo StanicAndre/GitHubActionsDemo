@@ -21,9 +21,9 @@ $header.Add("X-GitHub-Api-Version", "2022-11-28");
 # get existing artifacts
 $artifacts = Invoke-RestMethod -Uri $repo_url -Headers $header -Method Get;
 
-$art_count = $artifact_sorted.Count;
-$art_id_0 = $artifact_sorted[0].id;
-$art_url_0 = $artifact_sorted[0].url;
+$art_count = $artifacts.Count;
+$art_id_0 = $artifacts[0].id;
+$art_url_0 = $artifacts[0].url;
 Write-Host "count `"$art_count`""
 Write-Host "id `"$art_id_0`""
 Write-Host "url `"$artifacts`""
