@@ -1,6 +1,6 @@
 # parameters required to call the API
 param(
-    [Parameter(Position=2, Mandatory=$true)]
+    [Parameter(Position=0, Mandatory=$true)]
     [ValidateNotNullOrEmpty()]
     [string]
     $github_token
