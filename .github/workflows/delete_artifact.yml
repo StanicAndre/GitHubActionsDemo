@@ -11,8 +11,6 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: 'Delete artifacts'
-      - id: cleanupartifacts
-        name: cleanup artifacts
         shell: pwsh
         run: .\powershell\cleanup_artifacts.ps1 -github_token ${{ secrets.GITHUB_TOKEN }}
       
