@@ -12,6 +12,6 @@ jobs:
     steps:
       - id: cleanup_artifacts
         name: cleanup artifacts
-        shell: pwsh
+        shell: powershell
         run: .\powershell\cleanup_artifacts.ps1 -github_token ${{ secrets.GITHUB_TOKEN }}
       
