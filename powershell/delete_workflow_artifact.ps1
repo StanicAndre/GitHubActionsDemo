@@ -3,9 +3,8 @@ param(
     [Parameter(Position=0, Mandatory=$true)]
     [ValidateNotNullOrEmpty()]
     [string]
-    $github_token
-)
-param(
+    $github_token,
+    
     [Parameter(Position=1, Mandatory=$true)]
     [ValidateNotNullOrEmpty()]
     [string]
