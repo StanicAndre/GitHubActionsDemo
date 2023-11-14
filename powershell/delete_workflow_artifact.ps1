@@ -21,9 +21,8 @@ $header.Add("X-GitHub-Api-Version", "2022-11-28");
 # get all artifacts from repo and sort them by creation date
 $artifacts = Invoke-RestMethod -Uri $repo_url -Headers $header -Method Get;
 $sorted_artifacts = $artifacts.artifacts | Sort-Object -Descending -Property created_at
-Write-Host "url `"$sorted_artifacts`""
 
-# get artifact to corresponding workflow_run
+# get artifact last created and its workflow_run_id
 $run_id = $sorted_artifacts[0].workflow_run.id
 Write-Host "url `"$run_id`""
 [string]$repo_url = "https://api.github.com/repos/StanicAndre/GitHubActionsDemo/actions/runs/$run_id/artifacts"
@@ -31,8 +30,8 @@ Write-Host "url `"$repo_url`""
 $artifact = Invoke-RestMethod -Uri $repo_url -Headers $header -Method Get;
 
 Write-Host "vor der if"
-$count = $artifact.total.count
-if($count -ge 1)
+$count = $artifact.total_count
+if($count -ne 0)
 { 
     Write-Host "In der if"
     #delete artifact   
