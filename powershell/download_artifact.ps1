@@ -31,5 +31,5 @@ if($artifacts.total_count -ne 0)
 
     # Download artifact
     [string]$redirect = Invoke-RestMethod -Uri $repo_url -Headers $header -Method Get;  
-    Invoke-RestMethod -Uri $redirect -Headers $header -Method Get; 
+    Write-Host "url  `"$redirect`""
 }
