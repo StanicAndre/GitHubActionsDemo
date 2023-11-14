@@ -30,5 +30,6 @@ if($artifacts.total_count -ne 0)
     [string]$repo_url = "https://api.github.com/repos/StanicAndre/GitHubActionsDemo/actions/artifacts/$artifact_id/zip"
 
     # Download artifact
-    Invoke-RestMethod -Uri $repo_url -Headers $header -Method Get;    
+    [string]$redirect = Invoke-RestMethod -Uri $repo_url -Headers $header -Method Get;  
+    Invoke-RestMethod -Uri $redirect -Headers $header -Method Get; 
 }
