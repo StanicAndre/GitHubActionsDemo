@@ -22,7 +22,10 @@ jobs:
       - name: Download artifact
         id: download-artifact
         uses: dawidd6/action-download-artifact@v2          
-    
+        with:
+            github_token: ${{secrets.GITHUB_TOKEN}}
+            workflow: upload_artifact.yml
+            
       - name: Display structure of downloaded files
         run: ls -R
         working-directory: .\
