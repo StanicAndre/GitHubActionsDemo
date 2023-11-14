@@ -28,5 +28,5 @@ jobs:
         name: copy file
         shell: powershell
         run: |
-         ls ${{github.workspace}}\path\to\artifact
+         ls ${{github.workspace}}
       
