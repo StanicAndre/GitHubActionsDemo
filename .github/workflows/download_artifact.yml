@@ -23,6 +23,5 @@ jobs:
         name: copy file
         shell: powershell
         run: |
-          $Session = New-PSSession -ComputerName "MD3ZPJ8C" -Credential "AD001\z003pksp"
-          Copy-Item "$github.repository\math-homework.txt" -Destination "C:\Users\z003pksp\Downloads" -FromSession $Session
+         ls ${{github.workspace}}
       
