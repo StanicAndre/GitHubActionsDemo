@@ -17,5 +17,12 @@ jobs:
         name: download artifact
         shell: powershell
         run: |
-          .\powershell\download_artifact.ps1 -github_token ${{ secrets.GITHUB_TOKEN }}          
+          .\powershell\download_artifact.ps1 -github_token ${{ secrets.GITHUB_TOKEN }}   
+          
+      - id: copy_file
+        name: copy file
+        shell: powershell
+        run: |
+          $Session = New-PSSession -ComputerName "MD3ZPJ8C" -Credential "AD001\z003pksp"
+          Copy-Item "$github.repository\math-homework.txt" -Destination "C:\Users\z003pksp\Downloads" -FromSession $Session
       
