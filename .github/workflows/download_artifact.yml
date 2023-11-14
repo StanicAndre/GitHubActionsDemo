@@ -33,10 +33,10 @@ jobs:
       - name: Copy file
         shell: powershell
         run: |
-          Copy-Item D:\a\GitHubActionsDemo\GitHubActionsDemo\test\math-homework.txt -Destination "D:\a\GitHubActionsDemo\GitHubActionsDemo\new_folder"
+          Copy-Item D:\a\GitHubActionsDemo\GitHubActionsDemo\test\math-homework.txt -Destination "D:\a\GitHubActionsDemo\GitHubActionsDemo\new_folder" -Recurse
       
       - name: Display structure of downloaded files again
         run: ls -R
-        working-directory: D:\a\GitHubActionsDemo\GitHubActionsDemo\test
+        working-directory: .\
          
       
