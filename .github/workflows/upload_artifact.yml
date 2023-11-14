@@ -1,6 +1,6 @@
 name: Upload data
 
-on: [workflow_dispatch]
+on: push
 
 jobs:
   job_1:
