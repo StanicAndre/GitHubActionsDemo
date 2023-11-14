@@ -21,19 +21,22 @@ $header.Add("X-GitHub-Api-Version", "2022-11-28");
 # get existing artifacts
 $artifacts = Invoke-RestMethod -Uri $repo_url -Headers $header -Method Get;
 
-$art_count = $artifacts.total_count;
-$art_id_0 = $artifacts.artifacts[0].id;
-$art_url_0 = $artifacts.artifacts[0].url;
-Write-Host "count `"$art_count`""
-Write-Host "id `"$art_id_0`""
-Write-Host "url `"$art_url_0`""
-
-#delete artifacts
-for ($i = 0; $i -lt $art_count; $i++) {
-    $art_id = $artifacts.artifacts[$i].id;
-
-
-    Write-Host "delete artifact `"$art_id`""
-    Invoke-RestMethod -Uri $artifacts.artifacts[$i].url -Headers $header -Method Delete;
-}  
+if($artifacts.total.count -ge 1)
+{
+    $art_count = $artifacts.total_count;
+    $art_id_0 = $artifacts.artifacts[0].id;
+    $art_url_0 = $artifacts.artifacts[0].url;
+    Write-Host "count `"$art_count`""
+    Write-Host "id `"$art_id_0`""
+    Write-Host "url `"$art_url_0`""
+    
+    #delete artifacts
+    for ($i = 0; $i -lt $art_count; $i++) {
+        $art_id = $artifacts.artifacts[$i].id;
+    
+    
+        Write-Host "delete artifact `"$art_id`""
+        Invoke-RestMethod -Uri $artifacts.artifacts[$i].url -Headers $header -Method Delete;
+    }  
+}
 
