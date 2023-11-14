@@ -23,18 +23,4 @@ jobs:
       - name: Download artifact
         uses: actions/download-artifact@v3
         with:
-          name: test 
-  delete:
-    needs: download
-    name: delete artifact
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v3
-        name: checkout
-        
-      - id: delete_workflow_artifact
-        name: Delete Artifact
-        shell: powershell
-        run: |
-          .\powershell\delete_workflow_artifact.ps1 -github_token ${{ secrets.GITHUB_TOKEN }} -run_id ${{ github.run_id }}
-      
+          name: test   
