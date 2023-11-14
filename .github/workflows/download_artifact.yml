@@ -32,8 +32,8 @@ jobs:
         working-directory: path/to/artifacts
           
           
-      - id: copy_file
-        name: copy file
+      - #id: copy_file
+        #name: copy file
         #shell: powershell
         #run: |
          
