@@ -37,6 +37,6 @@ jobs:
       
       - name: Display structure of downloaded files again
         run: ls -R
-        working-directory: .\
+        working-directory: D:\a\GitHubActionsDemo\GitHubActionsDemo\new_folder
          
       
