@@ -12,16 +12,20 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         name: checkout
-        
-      - id: download_artifact
-        name: download artifact
-        shell: powershell
-        run: |
-          .\powershell\download_artifact.ps1 -github_token ${{ secrets.GITHUB_TOKEN }}   
+
+      - uses: actions/download-artifact@v3
+        with:
+          name: test
+          path: path/to/artifact
+          
+      - name: Display structure of downloaded files
+        run: ls -R
+        working-directory: path/to/artifact
+          
           
       - id: copy_file
         name: copy file
         shell: powershell
         run: |
-         ls ${{github.workspace}}
+         ls ${{github.workspace}}\path\to\artifact
       
