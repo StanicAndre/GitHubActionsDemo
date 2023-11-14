@@ -23,18 +23,12 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           path: path/to/artifacts
-
-      - name: 'Echo download path'
-        run: echo ${{steps.download.outputs.download-path}}
-          
+    
       - name: Display structure of downloaded files
         run: ls -R
-        working-directory: path\to\artifacts
+        working-directory: path/to/artifacts
           
           
-      #- id: copy_file
-        #name: copy file
-        #shell: powershell
-        #run: |
+     
          
       
