@@ -27,8 +27,8 @@ if($artifacts.total_count -ne 0)
     # Get artifact last created 
     $artifact_id = $sorted_artifacts[0].id
     Write-Host "artifact_id:  `"$artifact_id`""
-    [string]$repo_url = "https://api.github.com/repos/StanicAndre/GitHubActionsDemo/actions/$artifact_id/zip"
+    [string]$repo_url = "https://api.github.com/repos/StanicAndre/GitHubActionsDemo/actions/artifacts/$artifact_id/zip"
 
     # Download artifact
-    $artifact = Invoke-RestMethod -Uri $repo_url -Headers $header -Method Get;    
+    Invoke-RestMethod -Uri $repo_url -Headers $header -Method Get;    
 }
