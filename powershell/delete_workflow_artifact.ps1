@@ -3,12 +3,7 @@ param(
     [Parameter(Position=0, Mandatory=$true)]
     [ValidateNotNullOrEmpty()]
     [string]
-    $github_token,
-    
-    [Parameter(Position=1, Mandatory=$true)]
-    [ValidateNotNullOrEmpty()]
-    [string]
-    $run_id
+    $github_token
 )
 
 # set preferences
@@ -21,10 +16,20 @@ $header = @{};
 $header.Add("Authorization", "Bearer $github_token");
 $header.Add("Accept", "application/vnd.github+json");
 $header.Add("X-GitHub-Api-Version", "2022-11-28");
-[string]$repo_url = "https://api.github.com/repos/StanicAndre/GitHubActionsDemo/actions/runs/$run_id/artifacts"
+[string]$repo_url = "https://api.github.com/repos/StanicAndre/GitHubActionsDemo/actions/artifacts"
 
-# get existing artifacts
+# get all artifacts from repo and sort them by creation date
+$artifacts = Invoke-RestMethod -Uri $repo_url -Headers $header -Method Get;
+$sorted_artifacts = $artifacts.artifacts | Sort-Object -Descending -Property created_at
+Write-Host "url `"$sorted_artifacts`""
+
+# get artifact to corresponding workflow_run
+$run_id = $sorted_artifacts[0].workflow_run.id
+Write-Host "url `"$run_id`""
+[string]$repo_url = "https://api.github.com/repos/StanicAndre/GitHubActionsDemo/actions/runs/$run_id/artifacts"
+Write-Host "url `"$repo_url`""
 $artifact = Invoke-RestMethod -Uri $repo_url -Headers $header -Method Get;
+
 Write-Host "vor der if"
 $count = $artifact.total.count
 if($count -ge 1)
