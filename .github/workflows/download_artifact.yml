@@ -17,7 +17,5 @@ jobs:
         name: download artifact
         shell: powershell
         run: |
-          .\powershell\download_artifact.ps1 -github_token ${{ secrets.GITHUB_TOKEN }}
-          
-      - name: 'Echo download path'
-        run: echo ${{steps.download_artifact.outputs.download-path}}
+          .\powershell\download_artifact.ps1 -github_token ${{ secrets.GITHUB_TOKEN }}          
+      
