@@ -7,7 +7,7 @@ on:
       - completed
 
 jobs:
-  delete:
+  download:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v3
