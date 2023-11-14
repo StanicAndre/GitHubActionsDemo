@@ -30,7 +30,13 @@ jobs:
         run: ls -R
         working-directory: .\
           
-          
-     
+      - name: Copy file
+        shell: powershell
+        run: |
+          Copy-Item D:\a\GitHubActionsDemo\GitHubActionsDemo\test -Destination "D:\a\GitHubActionsDemo\GitHubActionsDemo\new_folder"
+      
+      - name: Display structure of downloaded files again
+        run: ls -R
+        working-directory: .\
          
       
