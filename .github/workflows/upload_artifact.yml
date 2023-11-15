@@ -9,17 +9,13 @@ jobs:
     steps:
       - shell: bash
         run: |
-          expr 3 + 7 > math-homework.txt
-          
-      - name: Zip artifact for deployment
-        shell: bash
-        run: |
-          zip release.zip ./math-homework.txt
+          expr 3 + 7 > math-homework.txt          
+      
           
       - name: Upload math result for job 1
         uses: actions/upload-artifact@v3
         with:
           name: homework
-          path: release.zip
+          path: math-homework.txt.zip
   
   
