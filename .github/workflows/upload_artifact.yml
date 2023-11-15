@@ -9,13 +9,15 @@ jobs:
     steps:
       - shell: bash
         run: |
-          expr 3 + 7 > math-homework         
-          tar -cvzf math-homework.tar ./
+          expr 3 + 7 > in.txt         
+      - shell: bash
+        run: |
+          tar.exe -a -c -f out.zip in.txt
           
       - name: Upload math result for job 1
         uses: actions/upload-artifact@v3
         with:
-          name: homework
-          path: math-homework.tar
+          name: out
+          path: out.zip
   
   
