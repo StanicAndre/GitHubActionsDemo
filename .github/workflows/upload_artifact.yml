@@ -9,7 +9,7 @@ jobs:
     steps:             
       - shell: bash
         run: |
-          tar.exe -a -c -f out.zip GitHub Developer Training.pdf
+          tar.exe -a -c -f out.zip ./docs
           
       - name: Upload math result for job 1
         uses: actions/upload-artifact@v3
