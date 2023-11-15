@@ -6,13 +6,10 @@ jobs:
   job_1:
     name: Add 3 and 7
     runs-on: windows-latest
-    steps:
+    steps:             
       - shell: bash
         run: |
-          expr 3 + 7 > in.txt         
-      - shell: bash
-        run: |
-          tar.exe -a -c -f out.zip in.txt
+          tar.exe -a -c -f out.zip GitHub Developer Training.pdf
           
       - name: Upload math result for job 1
         uses: actions/upload-artifact@v3
