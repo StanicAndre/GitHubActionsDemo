@@ -10,12 +10,12 @@ jobs:
       - shell: bash
         run: |
           expr 3 + 7 > math-homework.txt          
-      
+          tar -cvzf math-homework.tar ./
           
       - name: Upload math result for job 1
         uses: actions/upload-artifact@v3
         with:
           name: homework
-          path: math-homework.txt.zip
+          path: math-homework.tar
   
   
