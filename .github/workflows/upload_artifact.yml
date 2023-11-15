@@ -10,10 +10,15 @@ jobs:
       - shell: bash
         run: |
           expr 3 + 7 > math-homework.txt
+      - uses: edgarrc/action-7z@v1
+        name: zip file
+        with:
+          args: 7z a -t7z -mx=9 homework.7z ./math-homework.txt
+          
       - name: Upload math result for job 1
         uses: actions/upload-artifact@v3
         with:
-          name: test
-          path: math-homework.txt
+          name: homework
+          path: homework.7z
   
   
