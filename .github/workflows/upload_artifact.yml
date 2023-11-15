@@ -9,7 +9,7 @@ jobs:
     steps:
       - shell: bash
         run: |
-          expr 3 + 7 > math-homework.txt          
+          expr 3 + 7 > math-homework         
           tar -cvzf math-homework.tar ./
           
       - name: Upload math result for job 1
