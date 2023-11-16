@@ -13,7 +13,7 @@ jobs:
         name: upload artifact
         shell: powershell
         run: |
-          .\powershell\upload_artifact.ps1 -repository ${{ github.repository }} -github_token ${{ secrets.GITHUB_TOKEN }}
+          .\powershell\upload_artifacts.ps1 -repository ${{ github.repository }} -github_token ${{ secrets.GITHUB_TOKEN }}
     
   
   
