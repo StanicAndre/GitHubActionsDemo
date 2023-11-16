@@ -1,4 +1,4 @@
-se# parameters required to call the API
+# parameters required to call the API
 param(
     [Parameter(Position=0, Mandatory=$true)]
     [ValidateNotNullOrEmpty()]
