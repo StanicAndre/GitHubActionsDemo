@@ -1,6 +1,6 @@
 name: Upload Artifact
 
-on: workflow_dispatch
+on: push
 
 jobs:
   upload:
@@ -14,8 +14,8 @@ jobs:
         with:
           draft: false
           prerelease: false
-          release_name: abc
-          tag_name: def
+          release_name: ${{ github.ref }}
+          tag_name: ${{ github.ref }}
           body: |
             Changes in this Release
             - First Change
