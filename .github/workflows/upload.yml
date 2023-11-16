@@ -1,0 +1,31 @@
+name: Upload Artifact
+
+on: workflow_dispatch
+
+jobs:
+  upload:
+    runs-on: 
+      group: windows-latest
+    steps:
+      - name: release
+        uses: actions/create-release@v1
+        id: create_release
+        with:
+          draft: false
+          prerelease: false
+          release_name: abc
+          tag_name: def
+          body_path: Test.md
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          
+      - name: upload linux artifact
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./README.md.zip
+          asset_name: README.md.zip
+          asset_content_type: application/zip
+      
