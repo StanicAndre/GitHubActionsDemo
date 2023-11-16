@@ -14,7 +14,7 @@ jobs:
           prerelease: false
           release_name: abc
           tag_name: def
-          body_path: Test.md
+          body_path: README.md
         env:
           GITHUB_TOKEN: ${{ github.token }}
           
