@@ -21,7 +21,7 @@ $header = @{};
 $header.Add("Authorization", "Bearer $github_token");
 $header.Add("Accept", "application/vnd.github+json");
 $header.Add("X-GitHub-Api-Version", "2022-11-28");
-[string]$repo_url = "https://api.github.com/repos/StanicAndre/$repository/actions/artifacts" 
+[string]$repo_url = "https://api.github.com/repos/$repository/actions/artifacts" 
 
 #create artifact
 $file_Path =  "D:\a\GitHubActionsDemo\GitHubActionsDemo\README.md"
