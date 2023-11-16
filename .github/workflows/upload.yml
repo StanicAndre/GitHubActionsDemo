@@ -4,8 +4,7 @@ on: workflow_dispatch
 
 jobs:
   upload:
-    runs-on: 
-      group: windows-latest
+    runs-on: windows-latest
     steps:
       - name: release
         uses: actions/create-release@v1
