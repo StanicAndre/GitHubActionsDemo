@@ -12,18 +12,18 @@ jobs:
         uses: actions/create-release@v1
         id: create_release
         with:
-          draft: false
-          prerelease: false
-          release_name: ${{ github.ref }}
           tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
           body: |
             Changes in this Release
             - First Change
             - Second Change
+          draft: false
+          prerelease: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
-      - name: upload linux artifact
+      - name: upload asset
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
