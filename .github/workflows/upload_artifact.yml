@@ -13,8 +13,8 @@ jobs:
       #  name: upload artifact
       #  shell: powershell
       #  run: |
-      #   .\powershell\upload_artifacts.ps1 -repository ${{ github.repository }} -github_token ${{ secrets.GITHUB_TOKEN }}      
-      - name: upload artifact       
+      #   .\powershell\upload_artifacts.ps1 -repository ${{ github.repository }} -github_token ${{ secrets.GITHUB_TOKEN }}     
+          
       - shell: bash
         run: |
           expr 3 + 7 > math-homework.txt
