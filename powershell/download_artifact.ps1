@@ -30,7 +30,7 @@ if($artifacts.total_count -ne 0)
     [string]$repo_url = "https://api.github.com/repos/StanicAndre/GitHubActionsDemo/actions/artifacts/$artifact_id/zip"
 
     # Download artifact
-    $dest = "D:\a\GitHubActionsDemo\GitHubActionsDemo\test"
+    $dest = "D:\a\GitHubActionsDemo\GitHubActionsDemo\artifact.zip"
     [string]$redirect = Invoke-RestMethod -Uri $repo_url -Headers $header -Method Get -outfile $dest;  
     Write-Host "url  `"$redirect`""
 }
