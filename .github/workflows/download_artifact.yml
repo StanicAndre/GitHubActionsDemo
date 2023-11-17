@@ -13,22 +13,19 @@ jobs:
       - uses: actions/checkout@v3
         name: checkout
 
-      #- id: download_artifact
-      #  name: download artifact
-      #  shell: powershell
-      #  run: |
-      #    .\powershell\download_artifact.ps1 -github_token ${{ secrets.GITHUB_TOKEN }}   
-     
-      - name: Download artifact
-        id: download-artifact
-        uses: dawidd6/action-download-artifact@v2          
-        with:
-            github_token: ${{secrets.GITHUB_TOKEN}}
-            workflow: upload_artifact.yml
-            
+      - id: download_artifact
+        name: download artifact
+        shell: powershell
+        run: |
+          .\powershell\download_artifact.ps1 -github_token ${{ secrets.GITHUB_TOKEN }}   
+                      
       - name: Display structure of downloaded files
         run: ls -R
         working-directory: .\
+
+      - name: Display structure of downloaded files again
+        run: ls -R
+        working-directory: D:\a\GitHubActionsDemo\GitHubActionsDemo
           
       - name: Copy file
         shell: powershell
