@@ -25,7 +25,7 @@ jobs:
 
       - name: Display structure of downloaded files again
         run: ls -R
-        working-directory: D:\a\GitHubActionsDemo\GitHubActionsDemo
+        working-directory: D:\
           
       - name: Copy file
         shell: powershell
