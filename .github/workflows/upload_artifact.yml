@@ -22,7 +22,7 @@ jobs:
       - name: Upload math result for job 1
         uses: actions/upload-artifact@v3
         with:
-          name: test
+          name: run_id_${{ github.run_id }}_run_number_${{ github.run_number }}
           path: math-homework.txt
     
   
