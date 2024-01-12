@@ -15,8 +15,9 @@ jobs:
     - name: call the other repo
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        EVENT: YOUR_EVENT_TYPE
-        ORG: YOUR_ORG_NAME
-        REPO: YOUR_REPO_NAME
+        EVENT: "test_dispatch"
+        ORG: "StanicAndre"
+        REPO: "LearningGitHub"     
       run: |
-        curl -d "{\"event_type\": \"test_dispatch\"}" -H "Content-Type: application/json" -H "Authorization: token ${GITHUB_TOKEN}" -H "Accept: application/vnd.github+json" "https://api.github.com/repos/StanicAndre/LearningGitHub/dispatches"
+        curl -d "{\"event_type\": \"${EVENT}\"}" -H "Content-Type: application/json" -H "Authorization: token ${GITHUB_TOKEN}" -H "Accept: application/vnd.github+json" "https://api.github.com/repos/${ORG}/${REPO}/dispatches"
+        
