@@ -25,7 +25,7 @@ jobs:
       #     name: run_id_${{ github.run_id }}_run_number_${{ github.run_number }}
       #     path: math-homework.txt
       - name: Upload math result for job 1
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: run_id_${{ github.run_id }}_run_number_${{ github.run_number }}
           path: .\powershell
