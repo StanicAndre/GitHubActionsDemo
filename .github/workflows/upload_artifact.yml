@@ -15,15 +15,20 @@ jobs:
       #  run: |
       #   .\powershell\upload_artifacts.ps1 -repository ${{ github.repository }} -github_token ${{ secrets.GITHUB_TOKEN }}     
           
-      - shell: bash
-        run: |
-          expr 3 + 7 > math-homework.txt
+      # - shell: bash
+      #   run: |
+      #     expr 3 + 7 > math-homework.txt
           
+      # - name: Upload math result for job 1
+      #   uses: actions/upload-artifact@v3
+      #   with:
+      #     name: run_id_${{ github.run_id }}_run_number_${{ github.run_number }}
+      #     path: math-homework.txt
       - name: Upload math result for job 1
         uses: actions/upload-artifact@v3
         with:
           name: run_id_${{ github.run_id }}_run_number_${{ github.run_number }}
-          path: math-homework.txt
+          path: .\powershell
     
   
   
