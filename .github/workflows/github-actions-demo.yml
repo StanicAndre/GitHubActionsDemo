@@ -15,11 +15,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: |
-          echo: "triggered by: ${{ github.event_name }}"
-          echo: "branch: ${{github.ref}}"
+          echo "triggered by: ${{ github.event_name }}"
+          echo "branch: ${{github.ref}}"
       - name: list all files in repo
         run: |
-          echo: "repository ${{ github. repository }} contains:
+          echo "repository ${{ github. repository }} contains:
           tree
       
     
