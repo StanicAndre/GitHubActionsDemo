@@ -19,7 +19,7 @@ jobs:
           echo "branch: ${{github.ref}}"
       - name: list all files in repo
         run: |
-          echo "repository ${{ github. repository }} contains:
+          echo "repository ${{ github. repository }} contains:"
           tree
       
     
